@@ -1,0 +1,4 @@
+#!/bin/sh
+rm -rf LHS_*.out
+rm -rf fort.13
+

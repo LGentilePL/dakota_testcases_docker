@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo docker run --rm frehbach/cfd-test-problem-suite ./dockerCall.sh PitzDaily '{x1*0.11063283},{x2*-0.03252882},{x3*0.0333295},{x4*-0.02732676},{x5*0.07319029},{x6*0.00579979},{x7*0.08095974},{x8*-0.04046204},{x9*0.06019682},{x10*-0.01585734}' > results.out

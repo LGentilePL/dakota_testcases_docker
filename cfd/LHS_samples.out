@@ -1,0 +1,44 @@
+ $ LHS File Format Version 1.00 
+$
+$ This LHS run was executed on  7/12/21 at  8:56:54.06
+$ with LHS Version: 2.30 Release 1, Compiled May 31, 2001        
+$ The run title was:
+$ Pecos::LHSDriver
+$
+$ Message output file for this run: LHS_distributions.out
+$
+$ Input file(s) for this run: 
+$
+$ Point Values for the distributions follow:
+$
+$ All point values represent mean values that
+$ were calculated from the actual LHS sample.
+$
+    ContRange1            1.0014101E+00
+    ContRange2            9.9902399E-01
+    ContRange3            9.9988473E-01
+    ContRange4            9.9827780E-01
+    ContRange5            9.9871051E-01
+    ContRange6            1.0011157E+00
+    ContRange7            1.0006763E+00
+    ContRange8            1.0000512E+00
+    ContRange9            1.0000578E+00
+    ContRange10           9.9842529E-01
+$
+@UNCERTAINTY
+  @OBSERVATIONS      3
+  @VARIABLES     10
+    ContRange1:        
+    ContRange2:        
+    ContRange3:        
+    ContRange4:        
+    ContRange5:        
+    ContRange6:        
+    ContRange7:        
+    ContRange8:        
+    ContRange9:        
+    ContRange10:       
+@SAMPLEDATA
+           1          10  0.99278014665624748        1.0041874963184820        1.0033269367692992       0.99157392650842668       0.99925273826811467       0.99931178312438229        1.0023087394547960        1.0068303210847080        1.0091874495800586        1.0068960927147419     
+           2          10   1.0033145653875546       0.99621704907466968        1.0043117059503373        1.0059772048409408        1.0056370715005325        1.0095702604840822        1.0061279634603610       0.99208849008660760       0.99136301499325785       0.99153051480030019     
+           3          10   1.0081354965952536       0.99666742920720330       0.99201555045166367       0.99728225730359554       0.99124173474187649       0.99446497360244390       0.99359211154592531        1.0012347966711967       0.99962301929170894       0.99684925063978880     
