@@ -1,0 +1,60 @@
+environment
+  method_pointer = 'EvalSurrogate'
+  tabular_data
+   tabular_data_file = 'dak_surrogate_evals.dat'
+method
+  id_method = 'EvalSurrogate'
+  model_pointer = 'SurrogateModel'
+  sampling
+  sample_type = LHS
+  samples = 3000
+  seed = 6
+
+model
+  id_model = 'SurrogateModel'
+  surrogate global
+    gaussian_process surfpack	
+    dace_method_pointer = 'DesignMethod'
+    export_model
+      filename_prefix = 'dak_gp_model'
+      formats
+        text_archive
+
+method
+  	id_method = 'DesignMethod'
+	model_pointer = 'SimulationModel'
+	sampling
+	   sample_type = LHS
+	   samples = 500
+	   seed=1                                                           
+
+variables
+	uniform_uncertain = 28
+	active uncertain
+ 	lower_bounds    -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1
+	upper_bounds    1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1
+	descriptors      'x1' 'x2'	'x3' 'x4' 'x5' 'x6' 'x7' 'x8' 'x9' 'x10' 'x11' 'x12' 'x13' 'x14' 'x15' 'x16' 'x17' 'x18' 'x19' 'x20' 'x21' 'x22' 'x23' 'x24' 'x25' 'x26' 'x27' 'x28'
+
+model
+  id_model = 'SimulationModel'
+  single
+    interface_pointer = 'SimulationInterface'
+
+interface
+	id_interface = 'SimulationInterface'
+	# fork asynch evaluation_concurrency = 2
+    fork
+	  analysis_driver = 'simulator.sh'
+	  parameters_file = 'params.in'
+	  results_file    = 'results.out'
+    file_save
+	  work_directory named 'w/workdir'
+    directory_tag directory_save
+    link_files = 'templatedir/*'
+ 	  deactivate active_set_vector
+	
+	   
+responses
+	num_objective_functions = 1
+	no_gradients
+	no_hessians

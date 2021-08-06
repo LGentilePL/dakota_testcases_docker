@@ -1,0 +1,53 @@
+environment
+	method_pointer = 'UQ'
+	tabular_data
+		tabular_data_file = 'instructions_PCE.dat'
+method,
+	id_method = 'UQ'
+	polynomial_chaos
+	askey
+	#p_refinement
+	#uniform
+	#max_refinement_iterations=2
+	#convergence_tol=1e-10
+	#collocation_ratio 1
+	quadrature_order = 2
+	probability_levels 0.05 0.25 0.5 0.75 0.95
+	model_pointer = 'SimulationModel' 
+	samples_on_emulator 10000
+ 	export_expansion_file = 'expansions.dat'
+
+model,
+	id_model = 'SimulationModel'
+	single
+	interface_pointer = 'SimulationInterface'
+	variables_pointer = 'UQ_V'
+
+variables,
+	id_variables = 'UQ_V'
+	uniform_uncertain = 28
+	active uncertain
+ 	lower_bounds    -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1
+	upper_bounds    1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1, 10, 10, 10, 10, 1, 1, 1, 1
+	descriptors      'x1' 'x2'	'x3' 'x4' 'x5' 'x6' 'x7' 'x8' 'x9' 'x10' 'x11' 'x12' 'x13' 'x14' 'x15' 'x16' 'x17' 'x18' 'x19' 'x20' 'x21' 'x22' 'x23' 'x24' 'x25' 'x26' 'x27' 'x28'
+
+
+interface,
+	id_interface = 'SimulationInterface'
+	# fork asynch evaluation_concurrency = 2
+    fork
+	analysis_driver = 'simulator.sh'
+	parameters_file = 'params.in'
+	results_file    = 'results.out'
+    file_save
+	work_directory named 'w/workdir'
+    directory_tag directory_save
+    link_files = 'templatedir/*'
+ 	deactivate active_set_vector
+
+responses,
+	num_objective_functions = 1
+	no_gradients
+	no_hessians
+
+

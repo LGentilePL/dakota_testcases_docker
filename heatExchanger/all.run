@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "starting MC test"
+dakota -i instructions_MC.in -o MC.log
+./cleanFolder
+
+echo "starting PCE"
+dakota -i instructions_PCE.in -o PCE.log
+./cleanFolder
+echo "starting surrogate"
+instructions_surrogate.in
+./cleanFolder
